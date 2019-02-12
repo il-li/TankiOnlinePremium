@@ -12,7 +12,7 @@ import os
 
 start_time = time.time()
 
-bot = commands.Bot(command_prefix=commands.when_mentioned_or("d!"))
+bot = commands.Bot(command_prefix=commands.when_mentioned_or("+"))
 bot.remove_command('help')
 now = datetime.datetime.now()
 
@@ -25,7 +25,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-	if message.content.startswith("d!c open"):
+	if message.content.startswith("+c open"):
 		randomcontainer = ["You found a uncommon item: Repair kit", "You found a common item: 125 Double Armor", "You found a common item: 125 Double Damage", "You found a common item: 125 speed boost", "You found a common item: 125 mines", "You found a exotic item: Firebird XT", "You found a exotic item: Freeze XT", "You found a exotic item: Ricochet XT", "You found a exotic item: Vulcan XT", "You found a exotic item: Thunder XT", "You found a exotic item: Railgun XT", "You found a exotic item: Smoky XT", "You found a exotic item: Wasp XT", "You found a exotic item: Hornet XT", "You found a exotic item: Viking XT", "You found a exotic item: Titan XT", "You found a exotic item: Mammoth XT", "You found a rare item: Lava paint", "You found a rare item: Lead paint", "You found a rare item: Invader paint", "You found a rare item: Safari paint", "You found a rare item: Dragon paint", "You found a rare item: Magma paint", "You found a rare item: Mary paint", "You found a rare item: Sahara paint", "You found a rare item: Night paint", "You found a rare item: Storm paint", "You found a rare item: In Love paint", "You found a rare item: Carbon paint", "You found a rare item: Confetti paint", "You found a rare item: Alien paint", "You found a rare item: Chainmail", "You found a rare item: Dirty paint", "You found a rare item: Jaguar paint", "You found a rare item: Desert", "You found a rare item: Guerrila paint", "You found a rare item: Swash paint", "You found a rare item: Harlequin paint", "You found a rare item: Pixel paint", "You found a rare item: Corrosion paint", "You found a epic item: Frost paint", "You found a epic item: Golden Star paint", "You found a epic item: Archnid paint", "You found a epic item: Liquid Metal paint", "You found a epic item: Drought paint", "You found a epic item: Strawberry paint", "You found a epic item: Barber Shop paint", "You found a epic item: Scandinavia paint", "You found a epic item: Lunar Soil paint", "You found a epic item: Rust paint", "You found a epic item: Steak paint", "You found a epic item: Amber paint", "You found a epic item: Lime paint", "You found a epic item: Neuron paint", "You found a epic item: Domino paint", "You found a epic item: Mint paint", "You found a epic item: Watercolor paint"]
 		await bot.send_message(message.channel, (random.choice(randomcontainer)))
 	
@@ -33,7 +33,7 @@ async def on_message(message):
 		msg = ("Don't insult my friend Dyno! :angry:                                                                                                                         you are noob {0.author.mention}!").format(message)
 		await bot.send_message(message.channel, msg)
 	
-	if message.content.upper().startswith('D!8BALL'):
+	if message.content.upper().startswith('+8BALL'):
 		ball8 = (['It is certain','As i see it, yes', 'Dont count on it', 'Without a doubt', 'Definitely', 'Very doubtful', 'Outlook not so good', 'My sources say no', 'My reply is no', 'Most likely', 'You may rely on it', 'Ask again later'])
 		await bot.send_message(message.channel,(random.choice(ball8)))
 
@@ -41,7 +41,7 @@ async def on_message(message):
 		msg = "hello {0.author.mention}".format(message)
 		await bot.send_message(message.channel, msg)
 	
-	if message.content.startswith('d!hello'):
+	if message.content.startswith('+hello'):
 		msg = "hello {0.author.mention}".format(message)
 		await bot.send_message(message.channel, msg)
 	await bot.process_commands(message)
@@ -126,9 +126,8 @@ async def staffrequest(ctx, *, msg):
 @bot.command(pass_context=True)
 async def botinfo(ctx):
 	embed=discord.Embed(title="Bot name", description="Tanki Online", color=0xFFFF00)
-	embed.add_field(name="Creator", value="noobperson#2436")
-	embed.add_field(name="Invite link", value="[Click Here!](https://discordapp.com/api/oauth2/authorize?client_id=409253229491126285&permissions=2146958839&scope=bot)")
-	embed.add_field(name="Prefix", value="d!")
+	embed.add_field(name="Creator", value="Ex#6245")
+	embed.add_field(name="Prefix", value="+")
 	await bot.say(embed=embed)
 	
 @bot.command(pass_context = True)
@@ -190,7 +189,7 @@ async def rating(ctx, user: str):
     embed.add_field(name = "Kills", value ='{}\n'.format(KillsCount))
     embed.add_field(name = "Deaths", value ='{}\n'.format(DeathsCount))
     await bot.say(embed=embed)
-    print(f"{ctx.message.author.name} {ctx.message.author.id} from {ctx.message.server} used d!ratings command")
+    print(f"{ctx.message.author.name} {ctx.message.author.id} from {ctx.message.server} used +ratings command")
     			
 @bot.command(pass_context=True)
 async def noobs(ctx, *, reportmsg: str):
@@ -278,7 +277,7 @@ async def setup(ctx):
     await bot.create_channel(server, '🔥Music Zone🔥', type=discord.ChannelType.voice)
     await bot.create_channel(server, '🔥music_command🔥s',user)
     await bot.create_channel(server, '🔥Chill Zone🔥', type=discord.ChannelType.voice)
-    print(f"{ctx.message.author.name} from {ctx.message.server} used d!setup command")
+    print(f"{ctx.message.author.name} from {ctx.message.server} used +setup command")
     
 def user_is_me(ctx):
 	return ctx.message.author.id == "277983178914922497"
